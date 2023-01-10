@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser extension</title>
+    <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+    <div class="wrapper">
+        <h2>Browser:</h2>
+        <div class="logos">
+             <img class="chrome" src="chrome.png" alt="">
+             <img class="edge" src="edge.png" alt="">
+             <img class="firefox" src="firefox.png" alt="">
+             <img class="opera"  src="opera.png"  alt="">
+             <img class="safari" src="safari.png"  alt="">
+
+        </div>
+    </div>
+
+    <script>
+        let userAgent = navigator.userAgent;
+        let browser;
+        if(userAgent.match(/edg/i)){
+          browser = "edge";
+        }else if(userAgent.match(/firefox|fxios/i)){
+          browser = "firefox";
+        }else if(userAgent.match(/opr\//i)){
+          browser = "opera";
+        }else if(userAgent.match(/chrome|chromium|crios/i)){
+          browser = "chrome";
+        }else if(userAgent.match(/safari/i)){
+          browser = "safari";
+        }else{
+          alert("Other browser");
+        }
+        const logo = document.querySelector(`.logos .${browser}`);
+        if(logo){
+          logo.style.opacity = "1";
+        }
+      </script>
+  
+</body>
+</html>
